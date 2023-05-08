@@ -47,11 +47,11 @@ public class Home {
     //html은 request를 바로 받을 수 없지만, jsp는 받을 수 있다.
     @GetMapping("/")
     public String goHome(){
-        return "/WEB-INF/views/home.jsp";
+        return "/home";
     }
 
     @GetMapping("/study")
     public String goStudy(){
-        return "/WEB-INF/views/study_log.jsp";
+        return "/study_log";
     }
 }
