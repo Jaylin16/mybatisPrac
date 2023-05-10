@@ -1,13 +1,23 @@
 package com.spring.mybatisPrac.controller;
 
+import com.spring.mybatisPrac.service.StudyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 //RequestMapping은 POST, GET, PUT, DELETE, PATCH를 다 받을 수 있음.
 //URL의 구조 중 도메인/포트/"매핑 정보" 부분과 mapping해주는 역할을 해주는 어노테이션.
 //@RequestMapping("/home")
 public class Home {
+
+    @Autowired
+    StudyService studyService;
 
     //forward 방식과 redirect 방식의 차이.
 
@@ -51,7 +61,19 @@ public class Home {
     }
 
     @GetMapping("/study")
-    public String goStudy(){
-        return "/study_log";
+    @ResponseBody
+    public String goStudy() {
+
+        List<Map<String, String>> arrayList = new ArrayList<>();
+        arrayList = studyService.doStudyList();
+
+        for (Map<String, String> map : arrayList){
+            System.out.println(map.get("study_id"));
+            System.out.println(map.get("study_day"));
+            System.out.println(map.get("contents"));
+            System.out.println(map.get("log_date"));
+        }
+
+        return "가져왔다!~!";
     }
 }
