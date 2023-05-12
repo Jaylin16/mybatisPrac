@@ -68,10 +68,10 @@ public class Home {
         arrayList = studyService.doStudyList();
 
         for (Map<String, String> map : arrayList){
-            System.out.println(map.get("study_id"));
-            System.out.println(map.get("study_day"));
-            System.out.println(map.get("contents"));
-            System.out.println(map.get("log_date"));
+            System.out.println(map.get("STUDY_ID"));
+            System.out.println(map.get("STUDY_DAY"));
+            System.out.println(map.get("CONTENTS"));
+            System.out.println(map.get("LOG_DATE"));
         }
 
         return "가져왔다!~!";

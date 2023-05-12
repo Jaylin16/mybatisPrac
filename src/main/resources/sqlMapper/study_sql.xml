@@ -4,7 +4,7 @@
 <mapper namespace="com.spring.mybatisPrac.dao.StudyDao">
 
     <select id="doStudyList" resultType="map">
-        SELECT study_id , study_day , contents , log_date
+        SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
         FROM study_log
     </select>
 

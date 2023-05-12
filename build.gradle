@@ -25,7 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 
 	//mybatis
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 
 	//mySql DB
 	runtimeOnly 'com.mysql:mysql-connector-j:8.0.32'
