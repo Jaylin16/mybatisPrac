@@ -4,9 +4,8 @@ import com.spring.mybatisPrac.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -61,19 +60,12 @@ public class Home {
     }
 
     @GetMapping("/study")
-    @ResponseBody
-    public String goStudy() {
+    public String goStudy(HttpServletRequest request) {
 
-        List<Map<String, String>> arrayList = new ArrayList<>();
-        arrayList = studyService.doStudyList();
+        List<Map<String, String>> arrayList = studyService.doStudyList();
 
-        for (Map<String, String> map : arrayList){
-            System.out.println(map.get("STUDY_ID"));
-            System.out.println(map.get("STUDY_DAY"));
-            System.out.println(map.get("CONTENTS"));
-            System.out.println(map.get("LOG_DATE"));
-        }
+        request.setAttribute("list", arrayList);
 
-        return "가져왔다!~!";
+        return "/home/study_log";
     }
 }
