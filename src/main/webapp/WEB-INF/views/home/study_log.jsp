@@ -1,4 +1,13 @@
+<!-- 자바 유틸 사용을 위한 임포트. -->
+<%@ page import="java.util.*" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<!-- Controller에서 데이터를 받아오기 위한 부분. -->
+<%
+    List<Map<String, String>> list = (List<Map<String, String>>)request.getAttribute("list");
+%>
+
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -36,54 +45,26 @@
         </div>
     </div>
 
+    <% for(Map<String, String> map : list) { %>
+
     <div class="container" style="padding: 10px">
         <div class="row">
             <div class="col">
-                1
+                <%= map.get("STUDY_ID") %>
             </div>
             <div class="col">
-                Spring boot
+                <%= map.get("CONTENTS") %>
             </div>
             <div class="col">
-                2023.05.01
+                <%= map.get("STUDY_DAY") %>
             </div>
             <div class="col">
-                2023.05.01
+                <%= map.get("LOG_DATE") %>
             </div>
         </div>
     </div>
-    <div class="container" style="padding: 10px">
-        <div class="row">
-            <div class="col">
-                2
-            </div>
-            <div class="col">
-                Mybatis
-            </div>
-            <div class="col">
-                2023.05.03
-            </div>
-            <div class="col">
-                2023.05.03
-            </div>
-        </div>
-    </div>
-    <div class="container" style="padding: 10px">
-        <div class="row">
-            <div class="col">
-                3
-            </div>
-            <div class="col">
-                jpa
-            </div>
-            <div class="col">
-                2023.05.05
-            </div>
-            <div class="col">
-                2023.05.05
-            </div>
-        </div>
-    </div>
+
+    <% } %>
 
 </div>
 
