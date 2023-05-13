@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mybatisPrac.dao.StudyDao">
 
-    <select id="doStudyList" resultType="map">
+    <select id="doStudyList_list" resultType="map">
+        SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
+        FROM study_log
+    </select>
+
+    <select id="doStudyList" resultType="com.spring.mybatisPrac.vo.Vo_study">
         SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
         FROM study_log
     </select>

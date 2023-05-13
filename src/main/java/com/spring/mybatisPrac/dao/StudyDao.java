@@ -1,12 +1,12 @@
 package com.spring.mybatisPrac.dao;
 
+import com.spring.mybatisPrac.vo.Vo_study;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface StudyDao {
 
-    public List<Map<String, String>> doStudyList();
+    public List<Vo_study> doStudyList();
 }

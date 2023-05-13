@@ -1,12 +1,11 @@
 package com.spring.mybatisPrac.service;
 
 import com.spring.mybatisPrac.dao.StudyDao;
+import com.spring.mybatisPrac.vo.Vo_study;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class StudyService {
@@ -14,10 +13,9 @@ public class StudyService {
     @Autowired
     StudyDao studyDao;
 
-    public List<Map<String, String>> doStudyList() {
+    public List<Vo_study> doStudyList() {
 
-        List<Map<String, String>> arrayList = new ArrayList<>();
-        arrayList = studyDao.doStudyList();
+        List<Vo_study> arrayList = studyDao.doStudyList();
 
         return arrayList;
     }

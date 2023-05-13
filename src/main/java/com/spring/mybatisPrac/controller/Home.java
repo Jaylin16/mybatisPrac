@@ -1,13 +1,13 @@
 package com.spring.mybatisPrac.controller;
 
 import com.spring.mybatisPrac.service.StudyService;
+import com.spring.mybatisPrac.vo.Vo_study;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 //RequestMapping은 POST, GET, PUT, DELETE, PATCH를 다 받을 수 있음.
@@ -56,13 +56,13 @@ public class Home {
     //html은 request를 바로 받을 수 없지만, jsp는 받을 수 있다.
     @GetMapping("/")
     public String goHome(){
-        return "/home";
+        return "/home/home";
     }
 
     @GetMapping("/study")
     public String goStudy(HttpServletRequest request) {
 
-        List<Map<String, String>> arrayList = studyService.doStudyList();
+        List<Vo_study> arrayList = studyService.doStudyList();
 
         request.setAttribute("list", arrayList);
 

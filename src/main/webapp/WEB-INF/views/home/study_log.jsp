@@ -1,11 +1,12 @@
 <!-- 자바 유틸 사용을 위한 임포트. -->
 <%@ page import="java.util.*" %>
+<%@ page import="com.spring.mybatisPrac.vo.Vo_study" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Controller에서 데이터를 받아오기 위한 부분. -->
 <%
-    List<Map<String, String>> list = (List<Map<String, String>>)request.getAttribute("list");
+    List<Vo_study> list = (List<Vo_study>)request.getAttribute("list");
 %>
 
 <html lang="en">
@@ -45,21 +46,21 @@
         </div>
     </div>
 
-    <% for(Map<String, String> map : list) { %>
+    <% for(Vo_study study : list) { %>
 
     <div class="container" style="padding: 10px">
         <div class="row">
             <div class="col">
-                <%= map.get("STUDY_ID") %>
+                <%= study.getKEY_ID() %>
             </div>
             <div class="col">
-                <%= map.get("CONTENTS") %>
+                <%= study.getCONTENTS() %>
             </div>
             <div class="col">
-                <%= map.get("STUDY_DAY") %>
+                <%= study.getSTUDY_DAY() %>
             </div>
             <div class="col">
-                <%= map.get("LOG_DATE") %>
+                <%= study.getLOG_DATE() %>
             </div>
         </div>
     </div>
