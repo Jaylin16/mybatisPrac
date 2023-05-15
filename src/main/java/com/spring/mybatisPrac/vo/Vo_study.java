@@ -9,10 +9,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Vo_study {
 
-    private String KEY_ID;
-    private String STUDY_DAY;
-    private String CONTENTS;
-    private String LOG_DATE;
+    private String keyId;
+    private String studyDay;
+    private String contents;
+    private String logDate;
 
     /* lombok 적용 전 코드
     public Vo_study(String KEY_ID, String STUDY_DAY, String CONTENTS, String LOG_DATE) {

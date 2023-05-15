@@ -51,16 +51,16 @@
     <div class="container" style="padding: 10px">
         <div class="row">
             <div class="col">
-                <%= study.getKEY_ID() %>
+                <%= study.getKeyId() %>
             </div>
             <div class="col">
-                <%= study.getCONTENTS() %>
+                <%= study.getContents() %>
             </div>
             <div class="col">
-                <%= study.getSTUDY_DAY() %>
+                <%= study.getStudyDay() %>
             </div>
             <div class="col">
-                <%= study.getLOG_DATE() %>
+                <%= study.getLogDate() %>
             </div>
         </div>
     </div>

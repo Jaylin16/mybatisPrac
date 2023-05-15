@@ -3,14 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mybatisPrac.dao.StudyDao">
 
+<!--    Vo 사용 전 코드-->
     <select id="doStudyList_list" resultType="map">
         SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
         FROM study_log
     </select>
 
-    <select id="doStudyList" resultType="com.spring.mybatisPrac.vo.Vo_study">
+    <select id="doStudyList" resultMap="mapVoStudy">
         SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
         FROM study_log
     </select>
+
+<!--    resultMap 공부-->
+<!--    resultMap을 사용함으로써 기존 테이블이 아닌 다른 테이블의 값도 column과 property값을 맞춰줌으로서 가져오는게 가능해짐.-->
+<!--    id = 가져올 데이터의 resultMap 값과 매핑-->
+<!--    type = 가져올 데이터의 resultType 값과 매핑. 이 때, 실제 map을 돌리는 쪽의 코드에서는 resultType을 제거해주면 resultMap이 적용됨.-->
+    <resultMap id="mapVoStudy" type="com.spring.mybatisPrac.vo.Vo_study">
+<!--        column = 어떤 이름의 값인지-->
+<!--        property = 가져올 데이터 클래스 내에서 어떤 변수와 매핑시켜주는지 (지금 테스트 내에서는 Vo_study클래스에서의 변수와 매핑)-->
+<!--        jdbcType = jdbc 타입을 지정. (mybatis 홈페이지에 다양한 타입 안내되어있음.)-->
+<!--        javaType = java 타입을 지정. (mybatis 홈페이지에 다양한 타입이 안내되어있으며 jdbc타입과 일치하는 타입으로 매핑)-->
+        <result column="key_id" property="keyId" jdbcType="NVARCHAR" javaType="String" />
+        <result column="study_day" property="studyDay" jdbcType="NVARCHAR" javaType="String" />
+        <result column="contents" property="contents" jdbcType="NVARCHAR" javaType="String" />
+        <result column="log_date" property="logDate" jdbcType="NVARCHAR" javaType="String" />
+    </resultMap>
 
 </mapper>
