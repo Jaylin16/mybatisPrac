@@ -1,5 +1,12 @@
 package com.spring.mybatisPrac.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class Vo_study {
 
     private String KEY_ID;
@@ -7,6 +14,7 @@ public class Vo_study {
     private String CONTENTS;
     private String LOG_DATE;
 
+    /* lombok 적용 전 코드
     public Vo_study(String KEY_ID, String STUDY_DAY, String CONTENTS, String LOG_DATE) {
         this.KEY_ID = KEY_ID;
         this.STUDY_DAY = STUDY_DAY;
@@ -45,4 +53,5 @@ public class Vo_study {
     public void setLOG_DATE(String LOG_DATE) {
         this.LOG_DATE = LOG_DATE;
     }
+    */
 }
