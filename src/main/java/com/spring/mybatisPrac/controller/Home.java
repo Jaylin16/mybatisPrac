@@ -2,6 +2,7 @@ package com.spring.mybatisPrac.controller;
 
 import com.spring.mybatisPrac.service.StudyService;
 import com.spring.mybatisPrac.vo.Vo_study;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
+@Slf4j
 //RequestMapping은 POST, GET, PUT, DELETE, PATCH를 다 받을 수 있음.
 //URL의 구조 중 도메인/포트/"매핑 정보" 부분과 mapping해주는 역할을 해주는 어노테이션.
 //@RequestMapping("/home")
@@ -63,6 +65,14 @@ public class Home {
     public String goStudy(HttpServletRequest request) {
 
         List<Vo_study> arrayList = studyService.doStudyList();
+
+        log.info("vo_study");
+        for (Vo_study vo_study : arrayList) {
+            log.info(vo_study.getKeyId());
+            log.info(vo_study.getStudyDay());
+            log.info(vo_study.getContents());
+            log.info(vo_study.getLogDate());
+        }
 
         request.setAttribute("list", arrayList);
 
