@@ -28,5 +28,31 @@
         <result column="contents" property="contents" jdbcType="NVARCHAR" javaType="String" />
         <result column="log_date" property="logDate" jdbcType="NVARCHAR" javaType="String" />
     </resultMap>
+    
+<!--    Select one row of study log-->
+    <select id="getStudyLog" resultType="com.spring.mybatisPrac.vo.Vo_study">
+        SELECT cast(study_id as char) as STUDY_ID , cast(study_day as char) as STUDY_DAY , CONTENTS , cast(log_date as char) as LOG_DATE
+        FROM study_log
+        WHERE STUDY_ID = #{keyId}
+    </select>
+
+<!--    Modify the study log-->
+    <update id="updateStudyLog" parameterType="com.spring.mybatisPrac.vo.Vo_study">
+        UPDATE study_log
+        SET STUDY_DAY = #{studyDay}, CONTENTS = #{contents}, LOG_DATE = NOW()
+        WHERE STUDY_ID = #{keyId}
+    </update>
+
+<!--    Delete the study log-->
+    <delete id="deleteStudyLog">
+        DELETE from study_log
+        WHERE STUDY_ID = #{keyId}
+    </delete>
+
+<!--    Create the study log-->
+    <insert id="createStudyLog">
+        INSERT into study_log(STUDY_DAY, CONTENTS, LOG_DATE)
+        values (#{studyDay}, #{contents}, NOW())
+    </insert>
 
 </mapper>
