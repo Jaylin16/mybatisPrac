@@ -28,7 +28,7 @@
 
 <!--본문-->
 <div style = "height: 830px;" class="bg-dark text-secondary px-4 py-5 text-center">
-
+    <button type="button" onclick="location.href='/studyLog/create'">등록하기</button>
     <div class="container" style="padding: 10px; color: white">
         <div class="row">
             <div class="col">
@@ -42,6 +42,12 @@
             </div>
             <div class="col">
                 등록일자
+            </div>
+            <div class="col">
+                수정
+            </div>
+            <div class="col">
+                삭제
             </div>
         </div>
     </div>
@@ -61,6 +67,12 @@
             </div>
             <div class="col">
                 <%= study.getLogDate() %>
+            </div>
+            <div class="col">
+                <a href="/studyLog/modify?key_id=<%= study.getKeyId() %>">수정</a>
+            </div>
+            <div class="col">
+                <a href="/studyLog/delete?key_id=<%= study.getKeyId() %>">삭제</a>
             </div>
         </div>
     </div>
