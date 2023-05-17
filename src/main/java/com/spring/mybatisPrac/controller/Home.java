@@ -66,14 +66,6 @@ public class Home {
 
         List<Vo_study> arrayList = studyService.doStudyList();
 
-        log.info("vo_study");
-        for (Vo_study vo_study : arrayList) {
-            log.info(vo_study.getKeyId());
-            log.info(vo_study.getStudyDay());
-            log.info(vo_study.getContents());
-            log.info(vo_study.getLogDate());
-        }
-
         request.setAttribute("list", arrayList);
 
         return "/home/study_log";
